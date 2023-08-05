@@ -19,13 +19,33 @@ img {
   /* z-index: 1; */
 }
 
-.btn {
+.btnTrans {
   background-color: transparent;
-  color: black;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  border-radius: 5px;
+  color: rgb(220, 39, 106);
+  border: none;
+  margin-left: 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid rgb(220, 39, 106);
+  font-weight: 500;
 }
 
 .mainText {
   color: white;
   position: absolute;
   left: 7.5%;
+  top: 17%;
+}
+
+.mainText h1 {
+  font-size: 48px;
+}
+
+.mainText p {
+  font-size: 20px;
 }

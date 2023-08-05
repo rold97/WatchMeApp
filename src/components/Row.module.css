@@ -1,0 +1,10 @@
+.title {
+  color: white;
+  font-weight: bold;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}

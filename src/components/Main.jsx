@@ -1,15 +1,24 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import img from "../img/mockup.png";
 import classes from "./Main.module.css";
 import Button from "./UI/Button";
-import ButtonTransparent from "./UI/ButtonTransparent";
+import axios from "axios";
+import requests from "../Requests";
 
 const Main = () => {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    axios.get(requests.requestPopular).then((response) => {
+      setMovies(response.data);
+    });
+  }, []);
+  console.log(movies);
+
   return (
     <Fragment>
       <div className={classes.oval} />
       <img src={img} alt="img" />
-
       <div className={classes.ovalSecond} />
       <div className={classes.mainText}>
         <p>
@@ -19,9 +28,9 @@ const Main = () => {
         <h1>
           Movies, TV shows and much more <br /> without limits
         </h1>
-        <div>
-          <Button className={classes.btn}>Subscribe</Button>
-          <ButtonTransparent>Go to tarrifs</ButtonTransparent>
+        <div className={classes.buttons}>
+          <Button>Subscribe</Button>
+          <Button className={classes.btnTrans}>Go to tarrifs</Button>
         </div>
       </div>
     </Fragment>

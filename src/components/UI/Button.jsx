@@ -2,11 +2,15 @@ import React from "react";
 import classes from "./Button.module.css";
 
 function Button(props) {
-  const { children, style } = props;
   return (
-    <>
-      <button className={style ? style : classes.btn}>{children}</button>
-    </>
+    <button
+      type={props.type || "button"}
+      className={`${classes.btn} ${props.className}`}
+      onClick={props.onClick}
+      disabled={props.disabled}
+    >
+      {props.children}
+    </button>
   );
 }
 export default Button;
