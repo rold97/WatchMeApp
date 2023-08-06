@@ -1,0 +1,50 @@
+.row {
+  position: relative;
+  width: 400px;
+  align-items: center;
+  display: inline-block;
+
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.movieImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.movieTitle {
+  color: rgb(255, 255, 255);
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  height: 100%;
+  /* opacity: 0; */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay:hover {
+  background: black;
+  opacity: 0.8;
+}
+
+.BsPlay {
+  color: rgb(220, 39, 106);
+  size: 200px;
+  opacity: 0;
+}
+.overlay:hover .BsPlay {
+  opacity: 1;
+}

@@ -1,24 +1,19 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React from "react";
 import img from "../img/mockup.png";
 import classes from "./Main.module.css";
 import Button from "./UI/Button";
-import axios from "axios";
-import requests from "../Requests";
 
 const Main = () => {
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    axios.get(requests.requestPopular).then((response) => {
-      setMovies(response.data);
-    });
-  }, []);
-  console.log(movies);
+  // useEffect(() => {
+  //   axios.get(requests.requestPopular).then((response) => {
+  //     setMovies(response.data);
+  //   });
+  // }, []);
 
   return (
-    <Fragment>
+    <div className={classes.main}>
       <div className={classes.oval} />
-      <img src={img} alt="img" />
+      <img src={img} alt="img" className={classes.mainImg} />
       <div className={classes.ovalSecond} />
       <div className={classes.mainText}>
         <p>
@@ -33,7 +28,7 @@ const Main = () => {
           <Button className={classes.btnTrans}>Go to tarrifs</Button>
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 };
 

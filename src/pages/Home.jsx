@@ -8,9 +8,7 @@ function Home() {
   return (
     <Fragment>
       <Main />
-      <Row title="Popular" fetchURL={requests.requestPopular}>
-        {}
-      </Row>
+      <Row title="Popular" fetchURL={requests.requestPopular} />
     </Fragment>
   );
 }
