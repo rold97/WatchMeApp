@@ -31,8 +31,10 @@
   cursor: pointer;
   z-index: 10;
   visibility: hidden;
+  left: -10px;
 }
-.sliderButtons {
+
+.sliderButtonRight {
   background: white;
   border-radius: 100%;
   position: absolute;
@@ -40,16 +42,26 @@
   cursor: pointer;
   z-index: 10;
   visibility: hidden;
+  right: -10px;
 }
 
-.sliderButtons:hover {
+.sliderButtonRight:hover {
   background: rgb(220, 39, 106);
 }
+
+.sliderButtonLeft:hover {
+  background: rgb(220, 39, 106);
+}
+
 .rowBar {
   position: relative;
   display: flex;
   align-items: center;
 }
-.rowBar:hover .sliderButtons {
+.rowBar:hover .sliderButtonLeft {
+  visibility: visible;
+}
+
+.rowBar:hover .sliderButtonRight {
   visibility: visible;
 }

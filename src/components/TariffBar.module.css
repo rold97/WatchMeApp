@@ -1,0 +1,78 @@
+.bar {
+  background: rgb(35, 35, 45);
+  width: 400px;
+  border: none;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.bar:hover {
+  background: rgb(15, 16, 21);
+  border: 3px solid rgb(220, 39, 106);
+  scale: 110%;
+}
+
+.bar:hover .btn {
+  background-color: rgb(220, 39, 106);
+  color: white;
+}
+
+.padding {
+  padding: 1.5rem 0;
+}
+
+.price {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 12px 0;
+}
+.title {
+  color: white;
+  font-size: 24px;
+}
+.description {
+  color: white;
+  font-size: 16px;
+}
+
+.trial {
+  color: rgb(220, 39, 106);
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+ul {
+  color: white;
+}
+
+li {
+  display: flex;
+  margin: 10px 0;
+}
+
+.checkMark {
+  margin-right: 5px;
+}
+
+.buttonComp {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.btn {
+  background-color: transparent;
+  color: rgb(220, 39, 106);
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid rgb(220, 39, 106);
+  font-weight: 500;
+  width: 100%;
+  transition: all ease 0.3s;
+}

@@ -3,6 +3,14 @@ import { BsPlayCircleFill } from "react-icons/bs";
 import classes from "./Movie.module.css";
 
 const Movie = ({ item }) => {
+  const trancatedString = (str, num) => {
+    if (str?.length > num) {
+      return str.slice(0, num) + "....";
+    } else {
+      return str;
+    }
+  };
+
   return (
     <>
       <div className={classes.row}>
@@ -13,9 +21,9 @@ const Movie = ({ item }) => {
           alt={item?.title}
           className={classes.movieImg}
         ></img>
-        <p className={classes.movieTitle}>{item?.title}</p>
+        <p className={classes.movieTitle}>{trancatedString(item?.title, 35)}</p>
         <div className={classes.overlay}>
-          {<BsPlayCircleFill className={classes.BsPlay} size="5rem" />}
+          {<BsPlayCircleFill className={classes.BsPlay} size="4.5rem" />}
         </div>
       </div>
     </>

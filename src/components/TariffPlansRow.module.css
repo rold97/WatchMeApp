@@ -1,0 +1,14 @@
+.rowFragment {
+  margin: 100px 150px;
+}
+
+.rowBar {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.title {
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
