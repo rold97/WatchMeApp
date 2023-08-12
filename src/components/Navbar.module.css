@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 15px;
 }
 
 .logo {
@@ -38,11 +39,16 @@
 }
 .navLinks {
   display: flex;
+  font-size: 18px;
 }
 .Link {
   color: rgb(255, 255, 255);
   margin-left: 3rem;
   text-decoration: none;
+  transition: all 0.3 ease;
+}
+.Link:hover {
+  color: rgb(220, 39, 106);
 }
 
 .Link:active {

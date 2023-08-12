@@ -67,6 +67,7 @@ const TariffPlansRow = (props) => {
               trial={bar.trial}
               advantages={bar.advantages}
               key={bar.id}
+              id={bar.id}
             />
           );
         })}

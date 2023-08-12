@@ -24,7 +24,7 @@ const Main = () => {
           Movies, TV shows and much more <br /> without limits
         </h1>
         <div className={classes.buttons}>
-          <Button>Subscribe</Button>
+          <Button className={classes.btn}>Subscribe</Button>
           <Button className={classes.btnTrans}>Go to tarrifs</Button>
         </div>
       </div>

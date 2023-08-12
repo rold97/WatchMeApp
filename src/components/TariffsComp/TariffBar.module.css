@@ -1,3 +1,20 @@
+.activeBar {
+  width: 400px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  background: rgb(15, 16, 21);
+  border: 2px solid rgb(220, 39, 106);
+  scale: 110%;
+}
+
+.activeBar .btn {
+  box-shadow: rgb(220, 39, 106, 0.5) 0px 7px 29px 0px;
+}
+
 .bar {
   background: rgb(35, 35, 45);
   width: 400px;
@@ -12,13 +29,12 @@
 
 .bar:hover {
   background: rgb(15, 16, 21);
-  border: 3px solid rgb(220, 39, 106);
+  border: 2px solid rgb(220, 39, 106);
   scale: 110%;
 }
 
 .bar:hover .btn {
-  background-color: rgb(220, 39, 106);
-  color: white;
+  box-shadow: rgb(220, 39, 106, 0.5) 0px 7px 29px 0px;
 }
 
 .padding {
@@ -75,4 +91,9 @@ li {
   font-weight: 500;
   width: 100%;
   transition: all ease 0.3s;
+}
+
+.btn:hover {
+  background-color: rgb(220, 39, 106);
+  color: white;
 }

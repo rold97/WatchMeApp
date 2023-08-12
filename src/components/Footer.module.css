@@ -1,0 +1,51 @@
+.logo {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  font: bold;
+  cursor: pointer;
+  font-size: 36px;
+}
+
+.logo span {
+  color: rgb(220, 39, 106);
+}
+
+.links {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+.link {
+  color: white;
+}
+
+.footerFragment {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  border-top: solid 2px rgb(65, 65, 65);
+  margin: 0 150px 100px 150px;
+  padding-top: 100px;
+}
+
+.linksSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  font-size: 18px;
+}
+
+.logoFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 150px;
+  font-size: 18px;
+  transition: all 0.3 ease;
+}
+
+.Link:hover {
+  color: rgb(220, 39, 106);
+}
