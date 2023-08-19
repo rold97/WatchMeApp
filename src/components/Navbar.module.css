@@ -1,8 +1,9 @@
 .navBar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   margin-top: 15px;
+  margin: 20px 150px 0 150px;
 }
 
 .logo {
@@ -20,6 +21,7 @@
 .navBtn {
   border: none;
   margin-left: 1rem;
+  transition: all 0.3s ease;
 }
 
 .searchBar {
@@ -57,4 +59,30 @@
 
 .Link h2 {
   font-weight: 400;
+}
+.btnTrans {
+  background-color: transparent;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  border-radius: 5px;
+  color: rgb(220, 39, 106);
+  border: none;
+  margin-left: 1rem;
+  font-size: 16px;
+  cursor: pointer;
+  border: 2px solid rgb(220, 39, 106);
+  font-weight: 500;
+  transition: all ease 0.3s;
+}
+
+.btnTrans:hover {
+  box-shadow: rgb(220, 39, 106, 0.5) 0px 7px 29px 0px;
+  scale: 110%;
+}
+
+.navBtn:hover {
+  box-shadow: rgb(220, 39, 106, 0.5) 0px 7px 29px 0px;
+  scale: 110%;
 }

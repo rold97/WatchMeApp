@@ -1,41 +1,97 @@
 import React from "react";
-import classes from "./Navbar.module.css";
-import { NavLink } from "react-router-dom";
-import Button from "./UI/Button";
+// import classes from "./Navbar.module.css";
+
+// import Button from "./UI/Button";
+import { Link, useNavigate, NavLink } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 const Navbar = () => {
+  const { user, logOut } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logOut();
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <div className={classes.navBar}>
-      <h1 className={classes.logo}>
-        <span>Watch</span>Me
-      </h1>
-      <div className={classes.navLinks}>
-        <NavLink className={classes.Link}>
-          <h2>Main</h2>
-        </NavLink>
-        <NavLink className={classes.Link}>
-          <h2>Movies</h2>
-        </NavLink>
-        <NavLink className={classes.Link}>
-          <h2>Series</h2>
-        </NavLink>
-        <NavLink className={classes.Link}>
-          <h2>Cartoons</h2>
-        </NavLink>
-        <NavLink className={classes.Link}>
-          <h2>Collections</h2>
-        </NavLink>
-      </div>
-      <div>
-        <input
-          type="text"
-          placeholder="Search..."
-          className={classes.searchBar}
-        />
-        <Button className={classes.navBtn}>Sign In</Button>
-      </div>
+    <div className="flex items-center justify-between p-4 z-[100] w-full absolute mr-[150px]">
+      <Link to="/">
+        <h1 className="text-[#DC276A] text-5xl font-bold cursor-pointer ml-36">
+          Watch<span className="text-white">Me</span>
+        </h1>
+      </Link>
+      {user?.email ? (
+        <>
+          <div className="flex gap-12 no-underline">
+            <NavLink
+              to=""
+              className={({ isActive }) =>
+                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+              }
+            >
+              Movies
+            </NavLink>
+            <NavLink
+              to=""
+              className={({ isActive }) =>
+                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+              }
+            >
+              Series
+            </NavLink>{" "}
+            <NavLink
+              to=""
+              className={({ isActive }) =>
+                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+              }
+            >
+              Cartoons
+            </NavLink>
+            <NavLink
+              to=""
+              className={({ isActive }) =>
+                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+              }
+            >
+              My Collection
+            </NavLink>
+          </div>
+          <div>
+            <Link to="/account">
+              <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4">
+                Account
+              </button>
+            </Link>
+            <button
+              onClick={handleLogout}
+              className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32"
+            >
+              Logout
+            </button>
+          </div>
+        </>
+      ) : (
+        <div>
+          <Link to="/login">
+            <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4">
+              Log In
+            </button>
+          </Link>
+          <Link to="/signup">
+            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32">
+              Sign Up
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
+
+// );
 
 export default Navbar;

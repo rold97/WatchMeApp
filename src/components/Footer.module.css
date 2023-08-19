@@ -18,6 +18,11 @@
 }
 .link {
   color: white;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  scale: 110%;
 }
 
 .footerFragment {

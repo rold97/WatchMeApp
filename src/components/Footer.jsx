@@ -7,21 +7,23 @@ const Footer = () => {
   return (
     <div className={classes.footerFragment}>
       <div className={classes.logoFooter}>
-        <h1 className={classes.logo}>
-          <span>Watch</span>Me
-        </h1>
+        <Link to="/">
+          <h1 className={classes.logo}>
+            <span>Watch</span>Me
+          </h1>
+        </Link>
         <Link className={classes.link}>info@watchme.com</Link>
         <div className={classes.links}>
-          <Link>
+          <Link className={classes.Link}>
             <SiFacebook />
           </Link>
-          <Link>
+          <Link className={classes.Link}>
             <SiInstagram />
           </Link>
-          <Link>
+          <Link className={classes.Link}>
             <SiTelegram />
           </Link>
-          <Link>
+          <Link className={classes.Link}>
             <SiTwitter />
           </Link>
         </div>

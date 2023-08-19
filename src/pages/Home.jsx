@@ -6,6 +6,7 @@ import Row from "../components/MoviesComp/MoviesRow";
 import TariffPlansRow from "../components/TariffsComp/TariffPlansRow";
 import Questions from "../components/Questions";
 import Footer from "../components/Footer";
+import Error from "../components/UI/Error";
 
 function Home() {
   return (

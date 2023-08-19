@@ -21,8 +21,8 @@
   background-color: transparent;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   border-radius: 5px;
   color: rgb(220, 39, 106);
   border: none;
@@ -56,10 +56,15 @@
 }
 .main {
   height: 600px;
+  z-index: 100;
 }
 
 .btn {
   transition: all ease 0.3s;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 .btn:hover {
   scale: 110%;
