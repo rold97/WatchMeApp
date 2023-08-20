@@ -62,13 +62,13 @@ const Navbar = () => {
           </div>
           <div>
             <Link to="/account">
-              <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4">
+              <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease">
                 Account
               </button>
             </Link>
             <button
               onClick={handleLogout}
-              className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32"
+              className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
             >
               Logout
             </button>
@@ -77,12 +77,12 @@ const Navbar = () => {
       ) : (
         <div>
           <Link to="/login">
-            <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4">
+            <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease">
               Log In
             </button>
           </Link>
           <Link to="/signup">
-            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32">
+            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease">
               Sign Up
             </button>
           </Link>

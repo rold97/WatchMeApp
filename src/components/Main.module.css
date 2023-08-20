@@ -17,23 +17,6 @@
   transform: rotate(35deg);
 }
 
-.btnTrans {
-  background-color: transparent;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  border-radius: 5px;
-  color: rgb(220, 39, 106);
-  border: none;
-  margin-left: 1rem;
-  font-size: 16px;
-  cursor: pointer;
-  border: 2px solid rgb(220, 39, 106);
-  font-weight: 500;
-  transition: all ease 0.3s;
-}
-
 .btnTrans:hover {
   scale: 110%;
 }
@@ -63,8 +46,8 @@
   transition: all ease 0.3s;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .btn:hover {
   scale: 110%;

@@ -5,7 +5,7 @@ import classes from "./Movie.module.css";
 const Movie = ({ item }) => {
   const trancatedString = (str, num) => {
     if (str?.length > num) {
-      return str.slice(0, num) + "....";
+      return str.slice(0, num) + "...";
     } else {
       return str;
     }
@@ -20,6 +20,7 @@ const Movie = ({ item }) => {
           src={`https://image.tmdb.org/t/p/w500/${item?.backdrop_path}`}
           alt={item?.title}
           className={classes.movieImg}
+          id={item?.id}
         ></img>
         <p className={classes.movieTitle}>{trancatedString(item?.title, 35)}</p>
         <div className={classes.overlay}>

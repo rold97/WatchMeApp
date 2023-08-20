@@ -1,7 +1,6 @@
 import React from "react";
-import img from "../img/mockup.png";
+import img from "../img/mockup.webp";
 import classes from "./Main.module.css";
-import Button from "./UI/Button";
 
 const Main = () => {
   // useEffect(() => {
@@ -24,8 +23,12 @@ const Main = () => {
           Movies, TV shows and much more <br /> without limits
         </h1>
         <div className={classes.buttons}>
-          <Button className={classes.btn}>Subscribe</Button>
-          <Button className={classes.btnTrans}>Go to tarrifs</Button>
+          <button
+            type="button"
+            className="bg-[#DC276A]  py-5  px-14 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
+          >
+            Subscribe
+          </button>
         </div>
       </div>
     </div>

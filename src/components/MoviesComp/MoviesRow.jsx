@@ -4,22 +4,23 @@ import axios from "axios";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Movie from "./Movie";
 
-const Row = ({ title, fetchURL }) => {
+const Row = ({ title, fetchURL, rowID }) => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     axios.get(fetchURL).then((response) => {
       setMovies(response.data.results);
+      console.log(response.data);
     });
   }, [fetchURL]);
 
   const slideLeft = () => {
-    const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider" + rowID);
     slider.scrollLeft = slider.scrollLeft - 500;
   };
 
   const slideRight = () => {
-    const slider = document.getElementById("slider");
+    const slider = document.getElementById("slider" + rowID);
     slider.scrollLeft = slider.scrollLeft + 500;
   };
 
@@ -32,9 +33,9 @@ const Row = ({ title, fetchURL }) => {
           className={classes.sliderButtonLeft}
           onClick={slideLeft}
         />
-        <div id={"slider"} className={classes.slider}>
-          {movies.map((item, id) => {
-            return <Movie item={item} key={id} />;
+        <div id={"slider" + rowID} className={classes.slider}>
+          {movies.map((item) => {
+            return <Movie item={item} key={item.id} />;
           })}
         </div>
         <MdChevronRight
