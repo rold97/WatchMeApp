@@ -1,8 +1,8 @@
 .title {
   color: white;
   font-weight: bold;
-
-  font-size: 26px;
+  text-transform: uppercase;
+  font-size: 24px;
 }
 
 .rowFragment {

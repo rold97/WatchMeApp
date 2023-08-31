@@ -3,7 +3,7 @@
   font-weight: 700;
   font: bold;
   cursor: pointer;
-  font-size: 36px;
+  font-size: 48px;
 }
 
 .logo span {
@@ -19,38 +19,46 @@
 .link {
   color: white;
   transition: all 0.3s ease;
+  margin: auto;
+  width: 150px;
 }
 
 .link:hover {
-  scale: 110%;
+  scale: 105%;
+  color: rgb(220, 39, 106);
 }
 
 .footerFragment {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 80px;
   color: white;
   border-top: solid 2px rgb(65, 65, 65);
   margin: 0 150px 100px 150px;
   padding-top: 100px;
+  align-items: center;
 }
-
-.linksSection {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 150px;
+.link {
   font-size: 18px;
 }
 
-.logoFooter {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 150px;
+.Link {
   font-size: 18px;
-  transition: all 0.3 ease;
 }
 
 .Link:hover {
   color: rgb(220, 39, 106);
+}
+
+.footerLogo {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerLinks {
+  height: 110px;
+  display: grid;
+  align-items: center;
 }

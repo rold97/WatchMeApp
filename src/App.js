@@ -7,12 +7,14 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Account from "./pages/Account";
 import ProtectedRoute from "./components/ProtectedRoute";
-import Movie from "./pages/Movie";
+import MovieDetails from "./pages/MovieDetails";
+import MovieList from "./pages/MoviesList";
 
 function App() {
   return (
     <>
       <AuthContextProvider>
+        <></>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -26,7 +28,9 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/movie" element={<Movie />} />
+
+          <Route path="/movie/:id" element={<MovieDetails />} />
+          <Route path="movies/" element={<MovieList />}></Route>
         </Routes>
       </AuthContextProvider>
     </>

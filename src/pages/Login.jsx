@@ -2,7 +2,7 @@ import img from "../img/movieBG.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { useState } from "react";
-import Error from "../components/UI/Error";
+import Error from "../components/UI/Error/Error";
 
 const Login = () => {
   const { user, logIn } = UserAuth();
@@ -31,7 +31,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
   let errorMessage = "";
-  if (error == "Firebase: Error (auth/wrong-password).") {
+  if (error === "Firebase: Error (auth/wrong-password).") {
     errorMessage = "Wrong password. Try again!";
   } else {
     errorMessage = "Wrong email . Try again! ";
@@ -86,7 +86,7 @@ const Login = () => {
                   </Link>
                 </p>
               </form>
-              {error == "" ? "" : <Error text={errorMessage} />}
+              {error === "" ? "" : <Error text={errorMessage} />}
             </div>
           </div>
         </div>

@@ -10,7 +10,6 @@ const Row = ({ title, fetchURL, rowID }) => {
   useEffect(() => {
     axios.get(fetchURL).then((response) => {
       setMovies(response.data.results);
-      console.log(response.data);
     });
   }, [fetchURL]);
 
@@ -25,8 +24,12 @@ const Row = ({ title, fetchURL, rowID }) => {
   };
 
   return (
-    <div className={classes.rowFragment}>
-      <h2 className={classes.title}>{title}</h2>
+    <div className="mx-[150px] mt-20">
+      <div className=" w-full flex items-center justify-between">
+        <h2 className="text-white text-xl uppercase">{title}</h2>
+
+        <p className="text-white/70 text-xl ">See more...</p>
+      </div>
       <div className={classes.rowBar}>
         <MdChevronLeft
           size={60}
@@ -35,7 +38,7 @@ const Row = ({ title, fetchURL, rowID }) => {
         />
         <div id={"slider" + rowID} className={classes.slider}>
           {movies.map((item) => {
-            return <Movie item={item} key={item.id} />;
+            return <Movie item={item} key={item.id} id={item.id} />;
           })}
         </div>
         <MdChevronRight

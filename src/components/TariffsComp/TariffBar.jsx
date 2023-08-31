@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import classes from "./TariffBar.module.css";
-import Button from "../UI/Button";
+import Button from "../UI/Button/Button";
 import { IoMdCheckmarkCircle } from "react-icons/io";
 
 const TariffBar = ({ title, price, description, trial, advantages, id }) => {

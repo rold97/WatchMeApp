@@ -28,9 +28,11 @@ const Navbar = () => {
         <>
           <div className="flex gap-12 no-underline">
             <NavLink
-              to=""
+              to="movies/"
               className={({ isActive }) =>
-                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+                isActive
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase border-b-2 border-[#DC276A] transition-all easy-in-out"
+                  : "text-white uppercase"
               }
             >
               Movies
@@ -38,7 +40,9 @@ const Navbar = () => {
             <NavLink
               to=""
               className={({ isActive }) =>
-                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+                isActive
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase "
+                  : "text-white uppercase"
               }
             >
               Series
@@ -46,7 +50,9 @@ const Navbar = () => {
             <NavLink
               to=""
               className={({ isActive }) =>
-                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+                isActive
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase"
+                  : "text-white uppercase"
               }
             >
               Cartoons
@@ -54,7 +60,9 @@ const Navbar = () => {
             <NavLink
               to=""
               className={({ isActive }) =>
-                isActive ? "text-[#DC276A] hover:text-[#DC276A]" : "text-white"
+                isActive
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase"
+                  : "text-white uppercase"
               }
             >
               My Collection
@@ -62,13 +70,13 @@ const Navbar = () => {
           </div>
           <div>
             <Link to="/account">
-              <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease">
+              <button className="bg-transparent hover:bg-[#DC276A] py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] hover:text-white border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease">
                 Account
               </button>
             </Link>
             <button
               onClick={handleLogout}
-              className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
+              className="bg-[#DC276A] hover:bg-transparent hover:text-[#DC276A] border-[#DC276A] border-2 py-3.5  px-10 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
             >
               Logout
             </button>
@@ -77,7 +85,7 @@ const Navbar = () => {
       ) : (
         <div>
           <Link to="/login">
-            <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease">
+            <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease hover:bg-[#DC276A] hover:text-white">
               Log In
             </button>
           </Link>
