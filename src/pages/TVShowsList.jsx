@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import Cards from "../components/UI/Card/Card";
 import axios from "axios";
 
-const MovieList = () => {
-  const [movieList, setMovieList] = useState([]);
+const TVList = () => {
+  const [TvList, setTvList] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
@@ -23,18 +23,17 @@ const MovieList = () => {
   const getData = () =>
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
+        `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc`,
         options
       )
 
       .then((response) => {
         setTotalPages(response.data.total_pages);
         if (page === 1) {
-          setMovieList(response.data.results);
-          console.log(response);
+          setTvList(response.data.results);
         }
         if (page > 1) {
-          movieList.push(...response.data.results);
+          TvList.push(...response.data.results);
         }
         if (page === totalPages) {
           return;
@@ -60,13 +59,14 @@ const MovieList = () => {
         />
         <div className="bg-black/60 fixed top-0 left-0 w-full h-[300px]"></div>
         <div className="absolute  left-[45%] top-[13%] ">
-          <h1 className="text-3xl md:text-5xl font-bold">Movies</h1>
+          <h1 className="text-3xl md:text-5xl font-bold">TV Shows</h1>
         </div>
       </div>
-      <div className="flex content-center justify-center flex-wrap gap-8 mt-16">
-        {movieList.map((movie) => (
-          // <Link to={`/movie/${movie.id}`} key={movie.id}>
+      <div className="flex content-center justify-center flex-wrap gap-8">
+        {TvList.map((movie) => (
+          // <Link to={`/tv/${movie.id}`} key={movie.id}>
           <Cards movie={movie} key={movie.id} />
+          // </Link>
         ))}
       </div>
       <div className="flex justify-center">
@@ -81,4 +81,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default TVList;

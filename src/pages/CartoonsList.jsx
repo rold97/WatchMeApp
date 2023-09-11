@@ -4,44 +4,32 @@ import { Link } from "react-router-dom";
 import Cards from "../components/UI/Card/Card";
 import axios from "axios";
 
-const MovieList = () => {
-  const [movieList, setMovieList] = useState([]);
+const CartoonsList = () => {
+  const [cartoonsList, setCartoonsList] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMTg0Y2Y1OWI3NTFlZDc5Y2QyZWFjZTY4ZjIyNDI2YyIsInN1YiI6IjY0Y2QyYjg4MmYyNjZiMDllZTNjNDBiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9fAoOuQ3hWkSwO2UpbB5iaBrL4I26sRM7FJDHg10jc4";
+  const key = "1184cf59b751ed79cd2eace68f22426c";
 
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  };
-
-  const getData = () =>
+  const getData = () => {
     axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
-        options
+        `https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=16&page=${page}`
       )
-
       .then((response) => {
         setTotalPages(response.data.total_pages);
         if (page === 1) {
-          setMovieList(response.data.results);
+          setCartoonsList(response.data.results);
           console.log(response);
         }
         if (page > 1) {
-          movieList.push(...response.data.results);
+          cartoonsList.push(...response.data.results);
         }
         if (page === totalPages) {
           return;
         }
-      })
-      .catch((err) => console.error(err));
-
+      });
+  };
   useEffect(() => {
     getData();
   }, [page]);
@@ -60,13 +48,14 @@ const MovieList = () => {
         />
         <div className="bg-black/60 fixed top-0 left-0 w-full h-[300px]"></div>
         <div className="absolute  left-[45%] top-[13%] ">
-          <h1 className="text-3xl md:text-5xl font-bold">Movies</h1>
+          <h1 className="text-3xl md:text-5xl font-bold">Cartoons</h1>
         </div>
       </div>
-      <div className="flex content-center justify-center flex-wrap gap-8 mt-16">
-        {movieList.map((movie) => (
-          // <Link to={`/movie/${movie.id}`} key={movie.id}>
-          <Cards movie={movie} key={movie.id} />
+      <div className="flex content-center justify-center flex-wrap gap-8">
+        {cartoonsList.map((cartoon) => (
+          <Link to={`/movie/${cartoon.id}`} key={cartoon.id}>
+            <Cards movie={cartoon} key={cartoon.id} />
+          </Link>
         ))}
       </div>
       <div className="flex justify-center">
@@ -81,4 +70,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default CartoonsList;

@@ -34,13 +34,14 @@
   flex-direction: column;
   width: 100%;
   justify-content: flex-end;
-  background-image: linear-gradient(rgb(0, 0, 0, 0), rgb(0, 0, 0, 1));
+  background-image: linear-gradient(rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 1));
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: all 0.2s;
 }
 
 .cards__overlay:hover {
   opacity: 1;
+  transform: scale(1.1);
 }
 
 .card__title {
@@ -65,4 +66,19 @@
   font-size: 0.75rem;
   margin-bottom: 0.25rem;
   color: white;
+}
+
+.like {
+  position: absolute;
+  top: 0.7rem;
+  left: 0.7rem;
+  color: white;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.cards:hover .like {
+  opacity: 1;
+  transform: scale(1.1);
 }

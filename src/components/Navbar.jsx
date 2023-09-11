@@ -4,6 +4,7 @@ import React from "react";
 // import Button from "./UI/Button";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
+import Search from "./UI/Search/Search";
 
 const Navbar = () => {
   const { user, logOut } = UserAuth();
@@ -31,52 +32,48 @@ const Navbar = () => {
               to="movies/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase border-b-2 border-[#DC276A] transition-all easy-in-out"
-                  : "text-white uppercase"
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase  transition-all easy-in-out"
+                  : "text-white/80 uppercase  hover:text-white transition-all easy-in-out"
               }
             >
               Movies
             </NavLink>
             <NavLink
-              to=""
+              to="TVShows/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase "
-                  : "text-white uppercase"
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase transition-all easy-in-out"
+                  : "text-white/80 uppercase  hover:text-white transition-all easy-in-out"
               }
             >
-              Series
+              TV Shows
             </NavLink>{" "}
             <NavLink
-              to=""
+              to="cartoons/"
               className={({ isActive }) =>
                 isActive
                   ? "text-[#DC276A] hover:text-[#DC276A] uppercase"
-                  : "text-white uppercase"
+                  : "text-white/80 uppercase  hover:text-white transition-all easy-in-out"
               }
             >
               Cartoons
             </NavLink>
             <NavLink
-              to=""
+              to="mycollection/"
               className={({ isActive }) =>
                 isActive
                   ? "text-[#DC276A] hover:text-[#DC276A] uppercase"
-                  : "text-white uppercase"
+                  : "text-white/80 uppercase  hover:text-white"
               }
             >
               My Collection
             </NavLink>
           </div>
-          <div>
-            <Link to="/account">
-              <button className="bg-transparent hover:bg-[#DC276A] py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] hover:text-white border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease">
-                Account
-              </button>
-            </Link>
+          <div className="flex gap-3">
+            <Search />
             <button
               onClick={handleLogout}
-              className="bg-[#DC276A] hover:bg-transparent hover:text-[#DC276A] border-[#DC276A] border-2 py-3.5  px-10 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
+              className="bg-[#DC276A] hover:bg-transparent hover:text-[#DC276A] border-[#DC276A] border-2 py-3.5  px-10 rounded-3xl cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
             >
               Logout
             </button>
@@ -85,12 +82,12 @@ const Navbar = () => {
       ) : (
         <div>
           <Link to="/login">
-            <button className="bg-transparent py-3.5 px-10 rounded-md cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease hover:bg-[#DC276A] hover:text-white">
+            <button className="bg-transparent py-3.5 px-10 rounded-3xl cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease hover:bg-[#DC276A] hover:text-white">
               Log In
             </button>
           </Link>
           <Link to="/signup">
-            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease">
+            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-3xl cursor-pointer text-white mr-32 hover:scale-105 transition-all ease">
               Sign Up
             </button>
           </Link>

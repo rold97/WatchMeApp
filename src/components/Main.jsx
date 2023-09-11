@@ -25,7 +25,7 @@ const Main = () => {
         <div className={classes.buttons}>
           <button
             type="button"
-            className="bg-[#DC276A]  py-5  px-14 rounded-md cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
+            className="bg-[#DC276A]  py-5  px-14 rounded-3xl cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
           >
             Subscribe
           </button>

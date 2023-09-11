@@ -6,8 +6,7 @@ import { useParams } from "react-router-dom";
 const MovieDetails = ({}) => {
   const { id } = useParams();
   const key = "1184cf59b751ed79cd2eace68f22426c";
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMTg0Y2Y1OWI3NTFlZDc5Y2QyZWFjZTY4ZjIyNDI2YyIsInN1YiI6IjY0Y2QyYjg4MmYyNjZiMDllZTNjNDBiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9fAoOuQ3hWkSwO2UpbB5iaBrL4I26sRM7FJDHg10jc4";
+
   const [movieDetails, setMovieDetails] = useState();
   // const [movieVideos, setMovieVideos] = useState();
 
@@ -92,7 +91,10 @@ const MovieDetails = ({}) => {
           <div className="flex gap-3">
             {movieDetails?.genres.map((genr) => {
               return (
-                <p key={genr.id} className="text-gray-400 pb-4 text-base">
+                <p
+                  key={genr.id}
+                  className="text-gray-400 px-3 py-2 mb-4 text-base border-gray-400 rounded-full border-2"
+                >
                   {genr.name}
                 </p>
               );

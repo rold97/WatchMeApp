@@ -5,10 +5,13 @@ import Home from "./pages/Home";
 import { AuthContextProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Account from "./pages/Account";
 import ProtectedRoute from "./components/ProtectedRoute";
 import MovieDetails from "./pages/MovieDetails";
 import MovieList from "./pages/MoviesList";
+import TVList from "./pages/TVShowsList";
+import TVDetails from "./pages/TVDetails";
+import CartoonsList from "./pages/CartoonsList";
+import MyCollection from "./pages/MyCollection";
 
 function App() {
   return (
@@ -20,17 +23,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/account"
-            element={
-              <ProtectedRoute>
-                <Account />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/mycollection" element={<MyCollection />} />
 
           <Route path="/movie/:id" element={<MovieDetails />} />
-          <Route path="movies/" element={<MovieList />}></Route>
+          <Route path="/tv/:id" element={<TVDetails />} />
+          <Route path="movies/" element={<MovieList />} />
+          <Route path="TVShows/" element={<TVList />} />
+          <Route path="cartoons/" element={<CartoonsList />} />
         </Routes>
       </AuthContextProvider>
     </>
