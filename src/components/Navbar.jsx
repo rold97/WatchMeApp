@@ -32,7 +32,7 @@ const Navbar = () => {
               to="movies/"
               className={({ isActive }) =>
                 isActive
-                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase  transition-all easy-in-out"
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase transition-all easy-in-out"
                   : "text-white/80 uppercase  hover:text-white transition-all easy-in-out"
               }
             >
@@ -47,7 +47,7 @@ const Navbar = () => {
               }
             >
               TV Shows
-            </NavLink>{" "}
+            </NavLink>
             <NavLink
               to="cartoons/"
               className={({ isActive }) =>

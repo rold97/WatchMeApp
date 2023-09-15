@@ -53,9 +53,7 @@ const CartoonsList = () => {
       </div>
       <div className="flex content-center justify-center flex-wrap gap-8">
         {cartoonsList.map((cartoon) => (
-          <Link to={`/movie/${cartoon.id}`} key={cartoon.id}>
-            <Cards movie={cartoon} key={cartoon.id} />
-          </Link>
+          <Cards movie={cartoon} key={cartoon.id} type="movie" />
         ))}
       </div>
       <div className="flex justify-center">

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
 import Cards from "../components/UI/Card/Card";
 import axios from "axios";
 
@@ -31,7 +30,7 @@ const MovieList = () => {
         setTotalPages(response.data.total_pages);
         if (page === 1) {
           setMovieList(response.data.results);
-          console.log(response);
+          console.log(response.data.results);
         }
         if (page > 1) {
           movieList.push(...response.data.results);
@@ -65,8 +64,7 @@ const MovieList = () => {
       </div>
       <div className="flex content-center justify-center flex-wrap gap-8 mt-16">
         {movieList.map((movie) => (
-          // <Link to={`/movie/${movie.id}`} key={movie.id}>
-          <Cards movie={movie} key={movie.id} />
+          <Cards movie={movie} key={movie.id} type="movie" />
         ))}
       </div>
       <div className="flex justify-center">

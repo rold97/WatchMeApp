@@ -64,9 +64,10 @@ const TVList = () => {
       </div>
       <div className="flex content-center justify-center flex-wrap gap-8">
         {TvList.map((movie) => (
-          // <Link to={`/tv/${movie.id}`} key={movie.id}>
-          <Cards movie={movie} key={movie.id} />
-          // </Link>
+          <>
+            {console.log(movie)}
+            <Cards movie={movie} key={movie.id} type="tv" />
+          </>
         ))}
       </div>
       <div className="flex justify-center">
