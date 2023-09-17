@@ -76,7 +76,7 @@ const Cards = ({ movie, type }) => {
           </SkeletonTheme>
         </div>
       ) : (
-        <div className="group inline-block relative rounded-[10px] overflow-hidden m-[0.2rem] pointer min-w-[200px] h-[300px] z-0  border-solid border-[1px] border-[#636363] transition-transform ease-in-out duration-300 hover:scale-110 hover:z-[1000] hover:shadow-xl hover:border-[#dc276a] ">
+        <div className="group inline-block relative rounded-[10px] overflow-hidden m-[0.2rem] pointer min-w-[200px] h-[300px] z-0  border-solid border-[1px] border-[#636363] transition-transform ease-in-out duration-300 hover:scale-110 hover:z-[100] hover:shadow-xl hover:border-[#dc276a] ">
           <div>
             {like ? (
               <AiFillHeart

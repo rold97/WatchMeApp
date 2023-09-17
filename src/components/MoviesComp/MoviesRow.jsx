@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import classes from "./MoviesRow.module.css";
+
 import axios from "axios";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import Movie from "./Movie";
@@ -30,20 +30,23 @@ const Row = ({ title, fetchURL, rowID }) => {
 
         <p className="text-white/70 text-xl ">See more...</p>
       </div>
-      <div className={classes.rowBar}>
+      <div className="group relative flex items-center ">
         <MdChevronLeft
           size={60}
-          className={classes.sliderButtonLeft}
+          className="bg-white rounded-full absolute opacity-80 cursor-pointer z-10 invisible left-[-15px] hover:bg-[#DC276A] group-hover:visible"
           onClick={slideLeft}
         />
-        <div id={"slider" + rowID} className={classes.slider}>
+        <div
+          id={"slider" + rowID}
+          className="w-full h-full whitespace-nowrap scroll-smooth overflow-hidden relative"
+        >
           {movies.map((item) => {
             return <Movie item={item} key={item.id} id={item.id} />;
           })}
         </div>
         <MdChevronRight
           size={60}
-          className={classes.sliderButtonRight}
+          className="bg-white rounded-full absolute opacity-80 cursor-pointer z-10 invisible right-[-15px] hover:bg-[#DC276A] group-hover:visible"
           onClick={slideRight}
         />
       </div>
