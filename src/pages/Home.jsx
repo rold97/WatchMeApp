@@ -30,7 +30,6 @@ function Home() {
       <Row rowID="3" title="Upcoming" fetchURL={requests.requestUpcoming} />
       {/* <TariffPlansRow title="Tariff plans" /> */}
       <Questions />
-      <Footer />
     </Fragment>
   );
 }

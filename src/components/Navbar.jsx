@@ -29,6 +29,16 @@ const Navbar = () => {
         <>
           <div className="flex gap-12 no-underline">
             <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-[#DC276A] hover:text-[#DC276A] uppercase transition-all easy-in-out"
+                  : "text-white/80 uppercase  hover:text-white transition-all easy-in-out"
+              }
+            >
+              Main
+            </NavLink>
+            <NavLink
               to="movies/"
               className={({ isActive }) =>
                 isActive
@@ -96,7 +106,5 @@ const Navbar = () => {
     </div>
   );
 };
-
-// );
 
 export default Navbar;

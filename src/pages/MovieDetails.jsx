@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import VideoList from "../components/VideoList";
 import SimilarList from "../components/SimilarList";
 
@@ -12,12 +12,9 @@ const MovieDetails = () => {
   // const [movieVideos, setMovieVideos] = useState();
   const [cast, setCast] = useState([]);
 
-  // window.onbeforeunload = function () {
-
-  // };
-  document.addEventListener("DOMContentLoaded", function () {
+  const goToTop = () => {
     window.scrollTo(0, 0);
-  });
+  };
 
   const findMovieByID = async () => {
     await axios
@@ -26,7 +23,6 @@ const MovieDetails = () => {
       )
       .then((response) => {
         setMovieDetails(response.data);
-        // console.log(response.data);
       })
       .catch((err) => console.error(err));
   };
@@ -45,13 +41,14 @@ const MovieDetails = () => {
   useEffect(() => {
     findMovieByID();
     findCast();
-  }, []);
+    goToTop();
+  }, [id]);
 
   return (
     <>
-      <div className="w-full h-[1100px] text-white ">
+      <div className="w-full h-full text-white ">
         <div className="w-full h-[1100px] ">
-          <div className="absolute w-full h-[1100px] bg-gradient-to-b from-black/40 to-[black]" />
+          <div className="absolute w-full h-[1100px] bg-gradient-to-b from-black/40 to-black" />
           <img
             className="w-full h-[1100px] object-cover"
             src={`https://image.tmdb.org/t/p/original/${movieDetails?.backdrop_path}`}
@@ -102,22 +99,24 @@ const MovieDetails = () => {
                 {movieDetails?.overview}
               </p>
 
-              <h2 className="text-3xl  font-semibold text-white mt-4">Casts</h2>
+              <h2 className="text-3xl  font-semibold text-white mt-4">Cast</h2>
               <div className="flex gap-3 mt-5">
                 {cast.map((actor) => {
                   return (
-                    <div key={actor.id}>
-                      <img
-                        className="w-[120px]"
-                        src={`https://image.tmdb.org/t/p/original/${actor?.profile_path}`}
-                        alt={actor?.name}
-                      />
-                      <p className="text-white">
-                        {actor.name.length > 12
-                          ? actor.name.slice(0, 12) + " ..."
-                          : actor.name}
-                      </p>
-                    </div>
+                    <Link to={`/actor/${actor.id}`} key={actor.id}>
+                      <div className="group hover:scale-110 ~bg-black transition-all ease-in-out duration-200">
+                        <img
+                          className="w-[120px] opacity-75 group-hover:opacity-100"
+                          src={`https://image.tmdb.org/t/p/original/${actor?.profile_path}`}
+                          alt={actor?.name}
+                        />
+                        <p className="text-white">
+                          {actor.name.length > 12
+                            ? actor.name.slice(0, 12) + " ..."
+                            : actor.name}
+                        </p>
+                      </div>
+                    </Link>
                   );
                 })}
               </div>

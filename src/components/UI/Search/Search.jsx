@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import "./Search.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+  const [title, setTitle] = useState("");
+  const [keyword, setKeyword] = useState([]);
+  const navigate = useNavigate();
+
+  const handleChange = (event) => {
+    setKeyword(event.target.value);
+    setTitle(event.target.value);
+  };
+
+  const goToSearch = useCallback(
+    (e) => {
+      e.preventDefault();
+      if (keyword.trim().length > 0) {
+        navigate(`/search/${keyword}`);
+        setTitle("");
+      }
+    },
+    [keyword, navigate]
+  );
+
   return (
-    <div className="input-container">
+    <form className="input-container" onSubmit={goToSearch}>
       <input
         type="text"
         name="text"
         className="input"
         placeholder="Search something..."
+        onChange={handleChange}
       />
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +56,7 @@ const Search = () => {
           ></path>{" "}
         </g>
       </svg>
-    </div>
+    </form>
   );
 };
 

@@ -1,4 +1,4 @@
-import img from "../img/movieBG.jpg";
+import img from "../assets/movieBG.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 import { useState } from "react";

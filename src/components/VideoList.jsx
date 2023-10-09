@@ -14,7 +14,7 @@ const VideoList = (props) => {
         )
         .then((response) => {
           setVideos(response.data.results.slice(0, 5));
-          // console.log(response.data.results);
+          console.log(response);
         })
         .catch((err) => console.error(err));
     };

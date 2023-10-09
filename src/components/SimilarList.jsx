@@ -14,7 +14,7 @@ const SimilarList = (props) => {
           `https://api.themoviedb.org/3/${props.type}/${props.id}/similar?api_key=${key}&language=en-US`
         )
         .then((response) => {
-          console.log(response.data.results);
+          // console.log(response.data.results);
           setSimilarMovies(response.data.results);
         })
         .catch((err) => console.error(err));
@@ -42,7 +42,7 @@ const SimilarList = (props) => {
         />
         <div
           id={"slider"}
-          className="w-full h-full whitespace-nowrap scroll-smooth overflow-hidden relative"
+          className="w-full h-[350px] scroll-smooth overflow-hidden relative flex items-center gap-2"
         >
           {similarMovies.map((movie) => (
             <Cards movie={movie} key={movie.id} type="movie" />

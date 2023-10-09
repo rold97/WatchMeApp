@@ -5,13 +5,16 @@ import Home from "./pages/Home";
 import { AuthContextProvider } from "./context/AuthContext";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import ProtectedRoute from "./components/ProtectedRoute";
 import MovieDetails from "./pages/MovieDetails";
 import MovieList from "./pages/MoviesList";
 import TVList from "./pages/TVShowsList";
 import TVDetails from "./pages/TVDetails";
 import CartoonsList from "./pages/CartoonsList";
 import MyCollection from "./pages/MyCollection";
+import ActorPage from "./pages/ActorPage";
+import Footer from "./components/Footer";
+
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -24,13 +27,16 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/mycollection" element={<MyCollection />} />
-
+          <Route path="/actor/:id" element={<ActorPage />} />
           <Route path="/movie/:id" element={<MovieDetails />} />
           <Route path="/tv/:id" element={<TVDetails />} />
           <Route path="movies/" element={<MovieList />} />
           <Route path="TVShows/" element={<TVList />} />
           <Route path="cartoons/" element={<CartoonsList />} />
+
+          <Route path="/search/:keyword" element={<SearchPage />} />
         </Routes>
+        <Footer />
       </AuthContextProvider>
     </>
   );

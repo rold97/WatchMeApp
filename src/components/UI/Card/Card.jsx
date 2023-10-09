@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import classes from "../Card/Card.module.css";
+
 import { db } from "../../../firebase";
 import { arrayUnion, doc, updateDoc } from "firebase/firestore";
 import { UserAuth } from "../../../context/AuthContext";
@@ -102,12 +102,12 @@ const Cards = ({ movie, type }) => {
 
             <div className="absolute px-4 pb-4 h-[300px] flex flex-col w-full justify-end bg-gradient-to-b from-black/20 to-black bottom-0 opacity-0 hover:opacity-100 transition-all ease-in-out duration-300 hover:scale-110">
               <div className="font-black text-base mb-2 text-white">
-                {movie ? movie.original_title || movie.title : ""}
+                {movie ? movie.title || movie.original_title || movie.name : ""}
               </div>
               <div className="text-xs mb-1 text-white ">
-                {movie ? movie.release_date : ""}
+                {movie ? movie.release_date || movie.first_air_date : ""}
                 <span className="float-right">
-                  {movie ? movie.vote_average : ""}
+                  {movie ? movie.vote_average?.toFixed(1) : ""}
                   {/* <i className="fas fa-star" /> */}
                 </span>
               </div>

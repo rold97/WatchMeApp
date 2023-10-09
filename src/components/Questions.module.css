@@ -1,6 +1,8 @@
 .questionFragment {
-  margin: 100px 150px;
+  margin: 100px 150px 0 150px;
+  padding-bottom: 100px;
   display: flex;
+  border-bottom: solid 1px #414141;
 }
 .title {
   color: white;

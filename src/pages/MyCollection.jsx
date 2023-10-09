@@ -14,7 +14,7 @@ const MyCollection = () => {
           <h1 className="text-3xl md:text-5xl font-bold">My Collection</h1>
         </div>
       </div>
-      <SavedShows />;
+      <SavedShows className="pt-12" />;
     </>
   );
 };

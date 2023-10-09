@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../img/mockup.webp";
+import img from "../assets/mockup.webp";
 import classes from "./Main.module.css";
 
 const Main = () => {

@@ -1,55 +1,42 @@
-import React, { useEffect, useState } from "react";
-
-import Cards from "../components/UI/Card/Card";
 import axios from "axios";
-// import Search from "../components/UI/Search2/Search";
+import React, { useEffect, useState } from "react";
+import Search from "../components/UI/Search2/Search";
+import Cards from "../components/UI/Card/Card";
+import { useParams } from "react-router-dom";
 
-const MovieList = () => {
-  const [movieList, setMovieList] = useState([]);
+const SearchMovie = () => {
+  const [movieData, setMovieData] = useState();
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
+  const { keyword } = useParams();
 
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMTg0Y2Y1OWI3NTFlZDc5Y2QyZWFjZTY4ZjIyNDI2YyIsInN1YiI6IjY0Y2QyYjg4MmYyNjZiMDllZTNjNDBiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9fAoOuQ3hWkSwO2UpbB5iaBrL4I26sRM7FJDHg10jc4";
-
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${accessToken}`,
-    },
-  };
-
-  const getData = () =>
-    axios
+  const findMovie = async () => {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMTg0Y2Y1OWI3NTFlZDc5Y2QyZWFjZTY4ZjIyNDI2YyIsInN1YiI6IjY0Y2QyYjg4MmYyNjZiMDllZTNjNDBiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9fAoOuQ3hWkSwO2UpbB5iaBrL4I26sRM7FJDHg10jc4",
+      },
+    };
+    await axios
       .get(
-        `https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc`,
+        `https://api.themoviedb.org/3/search/movie?query=${keyword}&include_adult=true&language=en-US&page=1`,
         options
       )
-
       .then((response) => {
-        setTotalPages(response.data.total_pages);
-        if (page === 1) {
-          setMovieList(response.data.results);
-        }
-        if (page > 1) {
-          setMovieList(movieList.concat(response.data.results));
-        }
-        if (page === totalPages) {
-          return;
-        }
+        console.log(response.data.results);
+        setMovieData(response.data.results);
       })
       .catch((err) => console.error(err));
-
-  useEffect(() => {
-    getData();
-  }, [page]);
-
+  };
   const pageIncrease = () => {
     setPage(page + 1);
   };
 
-  console.log(movieList);
+  useEffect(() => {
+    findMovie();
+  }, [keyword]);
+
   return (
     <>
       <div className="w-full text-white ">
@@ -63,8 +50,11 @@ const MovieList = () => {
           <h1 className="text-3xl md:text-5xl font-bold">Movies</h1>
         </div>
       </div>
-      <div className="flex content-center justify-center flex-wrap gap-8 pt-12">
-        {movieList?.map((movie) => (
+      <div className="flex justify-center py-12">
+        <Search category="movie" />
+      </div>
+      <div className="flex content-center justify-center flex-wrap gap-8 ">
+        {movieData?.map((movie) => (
           <Cards movie={movie} key={movie.id} type="movie" />
         ))}
       </div>
@@ -80,4 +70,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default SearchMovie;
