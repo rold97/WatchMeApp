@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-
-import { Link } from "react-router-dom";
 import Cards from "../components/UI/Card/Card";
 import axios from "axios";
-import Search from "../components/UI/Search2/Search";
+import CategoryForm from "../components/UI/CategoryForm/CategoryForm";
 
 const TVList = () => {
   const [TvList, setTvList] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [category, setCategory] = useState([{ id: 0, name: "All" }]);
 
+  const key = "1184cf59b751ed79cd2eace68f22426c";
   const accessToken =
     "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMTg0Y2Y1OWI3NTFlZDc5Y2QyZWFjZTY4ZjIyNDI2YyIsInN1YiI6IjY0Y2QyYjg4MmYyNjZiMDllZTNjNDBiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9fAoOuQ3hWkSwO2UpbB5iaBrL4I26sRM7FJDHg10jc4";
 
@@ -21,8 +21,8 @@ const TVList = () => {
     },
   };
 
-  const getData = () =>
-    axios
+  const getData = async () =>
+    await axios
       .get(
         `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=${page}&sort_by=popularity.desc`,
         options
@@ -32,7 +32,6 @@ const TVList = () => {
         setTotalPages(response.data.total_pages);
         if (page === 1) {
           setTvList(response.data.results);
-          console.log(response.data.results);
         }
         if (page > 1) {
           setTvList(TvList.concat(response.data.results));
@@ -43,7 +42,18 @@ const TVList = () => {
       })
       .catch((err) => console.error(err));
 
+  const getCategory = async () =>
+    await axios
+      .get(
+        `https://api.themoviedb.org/3/genre/tv/list?api_key=${key}&language=en-US`
+      )
+      .then((response) => {
+        setCategory([{ id: 0, name: "All" }, ...response.data.genres]);
+      })
+      .catch((err) => console.error(err));
+
   useEffect(() => {
+    getCategory();
     getData();
   }, [page]);
 
@@ -64,13 +74,14 @@ const TVList = () => {
           <h1 className="text-3xl md:text-5xl font-bold">TV Shows</h1>
         </div>
       </div>
-
+      <CategoryForm category={category} />
       <div className="flex content-center justify-center flex-wrap gap-8 pt-12">
         {TvList.map((movie) => (
-          <>
-            {console.log(movie)}
-            <Cards movie={movie} key={movie.id} type="tv" />
-          </>
+          <Cards
+            movie={movie}
+            key={movie.id}
+            type={movie.release_date ? "movie" : "tv"}
+          />
         ))}
       </div>
       <div className="flex justify-center">

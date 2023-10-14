@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Collapse } from "react-collapse";
 import { ImCross, ImArrowDown } from "react-icons/im";
 import { TbMessage2Question } from "react-icons/tb";
 import { AnimatePresence, motion } from "framer-motion";

@@ -25,15 +25,12 @@ const Row = ({ title, fetchURL, rowID }) => {
 
   return (
     <div className="mx-[150px] mt-20">
-      <div className=" w-full flex items-center justify-between">
-        <h2 className="text-white text-xl uppercase">{title}</h2>
+      <h2 className="text-white text-xl uppercase">{title}</h2>
 
-        <p className="text-white/70 text-xl ">See more...</p>
-      </div>
       <div className="group relative flex items-center ">
         <MdChevronLeft
           size={60}
-          className="bg-white rounded-full absolute opacity-80 cursor-pointer z-10 invisible left-[-15px] hover:bg-[#DC276A] group-hover:visible"
+          className="bg-white rounded-full absolute opacity-80 cursor-pointer z-10 invisible left-[-15px] hover:bg-[#DC276A] group-hover:visible ease-in-out duration-200 transition-all"
           onClick={slideLeft}
         />
         <div
@@ -46,7 +43,7 @@ const Row = ({ title, fetchURL, rowID }) => {
         </div>
         <MdChevronRight
           size={60}
-          className="bg-white rounded-full absolute opacity-80 cursor-pointer z-10 invisible right-[-15px] hover:bg-[#DC276A] group-hover:visible"
+          className="bg-white rounded-full absolute opacity-80 cursor-pointer z-10 invisible right-[-15px] hover:bg-[#DC276A] group-hover:visible ease-in-out duration-200"
           onClick={slideRight}
         />
       </div>

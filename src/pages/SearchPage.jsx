@@ -53,7 +53,11 @@ const SearchPage = () => {
       <div className="flex justify-center py-12"></div>
       <div className="flex content-center justify-center flex-wrap gap-8 ">
         {movieData?.map((movie) => (
-          <Cards movie={movie} key={movie.id} type="movie" />
+          <Cards
+            movie={movie}
+            key={movie.id}
+            type={movie.release_date ? "movie" : "tv"}
+          />
         ))}
       </div>
       <div className="flex justify-center">

@@ -13,6 +13,7 @@ import CartoonsList from "./pages/CartoonsList";
 import MyCollection from "./pages/MyCollection";
 import ActorPage from "./pages/ActorPage";
 import Footer from "./components/Footer";
+import Error from "./pages/Error";
 
 import SearchPage from "./pages/SearchPage";
 
@@ -20,10 +21,9 @@ function App() {
   return (
     <>
       <AuthContextProvider>
-        <></>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} children />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/mycollection" element={<MyCollection />} />
@@ -33,8 +33,8 @@ function App() {
           <Route path="movies/" element={<MovieList />} />
           <Route path="TVShows/" element={<TVList />} />
           <Route path="cartoons/" element={<CartoonsList />} />
-
           <Route path="/search/:keyword" element={<SearchPage />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </AuthContextProvider>

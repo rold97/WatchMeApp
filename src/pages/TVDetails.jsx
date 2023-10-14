@@ -49,7 +49,7 @@ const TVDetails = ({}) => {
 
   return (
     <>
-      <div className="w-full h-[1100px] text-white">
+      <div className="w-full h-full text-white">
         <div className="w-full h-[1100px] ">
           <div className="absolute w-full h-[1100px] bg-gradient-to-b from-black/40 to-black" />
           <img
@@ -59,7 +59,7 @@ const TVDetails = ({}) => {
           />
         </div>
         <div className="absolute w-full top-[25%] ml-[150px]">
-          <div className="flex gap-12 items-center">
+          <div className="flex gap-12">
             <img
               className="w-[400px] shadow-2xl"
               src={`https://image.tmdb.org/t/p/original/${TvDetails?.poster_path}`}

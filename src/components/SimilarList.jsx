@@ -5,6 +5,7 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const SimilarList = (props) => {
   const [similarMovies, setSimilarMovies] = useState([]);
+
   const key = "1184cf59b751ed79cd2eace68f22426c";
 
   useEffect(() => {

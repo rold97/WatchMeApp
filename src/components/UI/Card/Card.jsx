@@ -106,7 +106,7 @@ const Cards = ({ movie, type }) => {
               </div>
               <div className="text-xs mb-1 text-white ">
                 {movie ? movie.release_date || movie.first_air_date : ""}
-                <span className="float-right">
+                <span className="float-right ">
                   {movie ? movie.vote_average?.toFixed(1) : ""}
                   {/* <i className="fas fa-star" /> */}
                 </span>

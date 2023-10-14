@@ -17,23 +17,15 @@ const Main = () => {
         className="w-[500px] absolute top-[200px] left-[1200px] drop-shadow-2xl"
       />
 
-      <div className="text-white absolute left-[150px] top-[220px]">
+      <div className="text-white absolute left-[150px] top-[270px]">
         <p className="text-xl">
           A library of movies and TV shows <br />
           you can watch anywhere
         </p>
         <h1 className="text-5xl my-[20px]">
-          Movies, TV shows and much more <br /> without limits
+          Movies, TV shows and much more <br />{" "}
+          <span className="text-[#DC276A]">without limits</span>
         </h1>
-        <div>
-          <p className="text-medium">Still not with use?</p>
-          <button
-            type="button"
-            className="bg-[#DC276A]  py-5  px-14 rounded-3xl cursor-pointer text-white hover:scale-105 transition-all ease"
-          >
-            Subscribe
-          </button>
-        </div>
       </div>
     </div>
   );

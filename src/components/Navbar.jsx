@@ -83,7 +83,7 @@ const Navbar = () => {
             <Search />
             <button
               onClick={handleLogout}
-              className="bg-[#DC276A] hover:bg-transparent hover:text-[#DC276A] border-[#DC276A] border-2 py-3.5  px-10 rounded-3xl cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
+              className="bg-[#DC276A] hover:bg-[#dc2769de]  border-[#DC276A] border-2 py-3.5  px-10 rounded-3xl cursor-pointer text-white mr-32 hover:scale-105 transition-all ease"
             >
               Logout
             </button>
@@ -92,12 +92,12 @@ const Navbar = () => {
       ) : (
         <div>
           <Link to="/login">
-            <button className="bg-transparent py-3.5 px-10 rounded-3xl cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease hover:bg-[#DC276A] hover:text-white">
+            <button className="bg-transparent py-3.5 px-10 rounded-3xl cursor-pointer text-[#DC276A] border-[#DC276A] border-2 mr-4 hover:scale-105 transition-all ease hover:bg-[#dc2769de] hover:text-white">
               Log In
             </button>
           </Link>
           <Link to="/signup">
-            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-3xl cursor-pointer text-white mr-32 hover:scale-105 transition-all ease">
+            <button className="bg-[#DC276A]  py-3.5  px-10 rounded-3xl border-[#DC276A] cursor-pointer text-white mr-32 hover:bg-[#dc2769de] hover:scale-105 transition-all ease">
               Sign Up
             </button>
           </Link>
